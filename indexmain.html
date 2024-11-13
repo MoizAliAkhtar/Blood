@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN link for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Blood Donation System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="success.html">Success Stories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero1" class="hero">
+        <div class="hero-content text-center">
+            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to the Blood Donation System</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Join us in saving lives!</p>
+            <div class="btn-container">
+                <a href="#about" class="btn btn-light mt-4" data-aos="fade-up" data-aos-delay="300">Get Started</a>
+                <a href="Adminmain.html" class="btn btn-light mt-4 disabled" data-aos="fade-up" data-aos-delay="300">Admin</a>
+                <a href="users.html" class="btn btn-light mt-4 disabled" data-aos="fade-up" data-aos-delay="300">User</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section text-light">
+        <div class="container">
+            <h2 class="text-center" style="color: red;">About Us</h2>
+            <p class="text-center">We are dedicated to making blood donation safe and accessible for everyone. Our
+                mission is to connect donors and recipients in a seamless way.</p>
+            <div class="row my-5">
+                <div class="col-md-6">
+                    <img src="images/pic2.jpg" alt="Description of the image" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h3 style="color: red; margin-bottom: 15px; margin-top: 20px;">Our Mission</h3>
+                    <p>To ensure a steady supply of safe blood for those in need through effective recruitment and
+                        retention of blood donors.</p>
+                    <h3 style="color: red; margin-bottom: 15px; margin-top: 20px;">Our Vision</h3>
+                    <p>A world where everyone has access to safe blood and blood products.</p>
+                    <h3 style="color: red; margin-bottom: 15px; margin-top: 20px;">Our Values</h3>
+                    <ul>
+                        <li>Compassion: Caring for our community and each other.</li>
+                        <li>Integrity: Acting honestly and ethically in all we do.</li>
+                        <li>Excellence: Striving for the highest standards in our service.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-center my-5" style="color: red;">Why Blood Donation Matters</h3>
+            <p>Every donation can save up to three lives. Blood is essential for surgeries, cancer treatment, trauma
+                care, and more. With your help, we can ensure that hospitals have the blood supplies they need to save
+                lives. Every drop counts, and your donation can make a significant difference.</p>
+
+            <h3 class="my-5" style="color: red;">How to Get Involved</h3>
+            <p>Getting involved is easy! You can donate blood, organize a blood drive, or simply help spread the word
+                about the importance of blood donation. Here’s how you can help:</p>
+            <ul>
+                <li><strong>Donate Blood:</strong> Visit one of our donation centers or organize a blood donation event.
+                </li>
+                <li><strong>Become a Volunteer:</strong> Help us manage donation events or assist with community
+                    outreach.</li>
+                <li><strong>Spread Awareness:</strong> Share your donation story and encourage friends and family to
+                    donate.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section text-light">
+        <div class="container">
+            <h2 class="text-center">Our Team</h2>
+
+            <!-- Carousel -->
+            <div id="servicesCarousel" class="carousel slide my-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/pic2.jpg" class="d-block w-100" alt="Service Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/staff1.jpg" class="d-block w-100" alt="Service Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/hos.jpg" class="d-block w-100" alt="Service Image 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center bg-light text-dark">
+                        <img src="images/stt.jpeg" class="card-img-top" alt="Staff">
+                        <div class="card-body">
+                            <h4 class="card-title">Staff</h4>
+                            <p class="card-text mb-3">Our dedicated staff ensures a compassionate experience, making a
+                                vital difference through life-saving blood donations.</p>
+                            <a href="/donation-info.html" class="btn btn-danger">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center bg-light text-dark">
+                        <img src="images/vol.jpg" class="card-img-top" alt="Volunteer">
+                        <div class="card-body">
+                            <h4 class="card-title">Volunteer</h4>
+                            <p class="card-text mb-3">Join our team of passionate volunteers and help save lives by
+                                supporting blood donation drives in your community.</p>
+                            <a href="/matching-info.html" class="btn btn-danger">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center bg-light text-dark">
+                        <img src="images/ngo.jpg" class="card-img-top" alt="NGO">
+                        <div class="card-body">
+                            <h4 class="card-title">NGO</h4>
+                            <p class="card-text mb-3">Partner with us to amplify the impact of blood donation drives and
+                                help save lives in communities in need.</p>
+                            <a href="/awareness-info.html" class="btn btn-danger">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 style="color: orange">About Us </h3>
+                <p>We are dedicated to saving lives by ensuring that blood donations are available whenever needed. Join
+                    us in our mission to help others.</p>
+            </div>
+            <div class="footer-section">
+                <h3 style="color: orange">Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="users.html">Donate Blood</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section">
+                <h3 style="color: orange">Contact</h3>
+                <p>Email: <a href="mailto:info@blooddonation.org">info@blooddonation.org</a></p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Blood Donation Street, City, Country</p>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section social">
+                <h3 style="color: orangered">Follow Us</h3>
+                <a href="https://facebook.com" target="_blank" class="facebook" style="color: lightseagreen"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="twitter" style="color: blue"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="instagram" style="color: palevioletred"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="linkedin" style="color: orange"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blood Donation Management System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
