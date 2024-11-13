@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Blood Inventory - Blood Donation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .inventory-table {
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .inventory-table th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Blood Donation System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Adminmain.html">Admin Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="container mt-5">
+        <div class="page-header text-center">
+            <h1>Total Blood Inventory</h1>
+            <p>Manage and track blood inventory for all types.</p>
+        </div>
+
+        <!-- Search and Filter Options -->
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <div class="input-group" style="max-width: 400px;">
+                <input type="text" class="form-control" placeholder="Search by blood type or donor ID">
+                <button class="btn btn-outline-secondary" type="button">Search</button>
+            </div>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addInventoryModal">Add New Blood Inventory</button>
+        </div>
+
+        <!-- Inventory Table -->
+        <div class="table-responsive inventory-table mt-4">
+            <table class="table table-bordered" id="inventoryTable">
+                <thead class="table-danger">
+                    <tr>
+                        <th>Blood Type</th>
+                        <th>Units Available</th>
+                        <th>Last Updated</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted dynamically here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Back to Dashboard Button -->
+        <div class="text-center mt-4">
+            <a href="Adminmain.html" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Add New Blood Inventory Modal -->
+    <div class="modal fade" id="addInventoryModal" tabindex="-1" aria-labelledby="addInventoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="addInventoryModalLabel">Add New Blood Inventory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="inventoryForm">
+                        <div class="mb-3">
+                            <label for="bloodType" class="form-label">Blood Type</label>
+                            <input type="text" class="form-control" id="bloodType" placeholder="Enter blood type" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="unitsAvailable" class="form-label">Units Available</label>
+                            <input type="number" class="form-control" id="unitsAvailable" placeholder="Enter available units" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastUpdated" class="form-label">Last Updated</label>
+                            <input type="date" class="form-control" id="lastUpdated" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Add Inventory</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Save inventory data to localStorage when the form is submitted
+        document.getElementById('inventoryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the values from the form
+            const bloodType = document.getElementById('bloodType').value;
+            const unitsAvailable = document.getElementById('unitsAvailable').value;
+            const lastUpdated = document.getElementById('lastUpdated').value;
+
+            // Create an inventory object
+            const inventoryItem = {
+                bloodType,
+                unitsAvailable,
+                lastUpdated
+            };
+
+            // Retrieve existing inventory from localStorage or create a new array if it doesn't exist
+            let inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
+
+            // Add the new inventory item to the array
+            inventoryData.push(inventoryItem);
+
+            // Save the updated array back to localStorage
+            localStorage.setItem('inventoryData', JSON.stringify(inventoryData));
+
+            // Close the modal after saving the data
+            var modal = bootstrap.Modal.getInstance(document.getElementById("addInventoryModal"));
+            modal.hide();
+
+            // Clear the form
+            document.getElementById('inventoryForm').reset();
+
+            // Reload the inventory
+            loadInventory();
+        });
+
+        // Function to load and display inventory data from localStorage
+        function loadInventory() {
+            const inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
+            const inventoryTableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
+
+            // Clear any existing data in the table
+            inventoryTableBody.innerHTML = '';
+
+            // Loop through the inventory data and add rows to the table
+            inventoryData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.bloodType}</td>
+                    <td>${item.unitsAvailable} units</td>
+                    <td>${item.lastUpdated}</td>
+                    <td><button class="btn btn-sm btn-outline-danger">Update</button></td>
+                `;
+                inventoryTableBody.appendChild(row);
+            });
+        }
+
+        // Call the function to load inventory when the page loads
+        window.onload = loadInventory;
+    </script>
+
+</body>
+</html>

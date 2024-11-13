@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Portal - Blood Donation System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Blood Donation System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donate.php#donorProfile">Donor Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#appointments">Appointments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#bloodRequests">Blood Requests</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Donor Registration Form -->
+    <section id="registrationForm" class="container mt-5 pt-5">
+        <h2>Donor Registration</h2>
+        <form method="POST" action="donate.php" class="mt-4">
+            <div class="form-group mb-3">
+                <label for="fullname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="contact" class="form-label">Contact Number</label>
+                <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter contact number" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="bloodType" class="form-label">Blood Type</label>
+                <select id="bloodType" class="form-control" name="bloodType" required>
+                    <option value="" disabled selected>Select blood type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="bloodUnit" class="form-label">Blood Unit (ml)</label>
+                <input type="number" class="form-control" id="bloodUnit" name="bloodUnit" placeholder="Enter blood unit in ml" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="availabilitys" class="form-label">Availability for Donating Blood</label>
+                <input type="date" class="form-control" id="availabilitys" name="availabilitys" required>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Register</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </form>
+    </section>
+
+    <!-- JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
