@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Donors - Blood Donation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .donors-table {
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .donors-table th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Blood Donation System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Adminmain.html">Admin Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="container mt-5">
+        <div class="page-header text-center">
+            <h1>Registered Donors</h1>
+            <p>Manage and view information on all registered donors.</p>
+        </div>
+
+        <!-- Donors Table -->
+        <div class="table-responsive donors-table mt-4">
+            <table class="table table-bordered">
+                <thead class="table-danger">
+                    <tr>
+                        <th>Donor ID</th>
+                        <th>Donor Name</th>
+                        <th>Blood Type</th>
+                        <th>Last Donation Date</th>
+                        <th>Location</th>
+                        <th>Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="donorsTableBody">
+                    <!-- Donor data will be inserted here via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Back to Dashboard Button -->
+        <div class="text-center mt-4">
+            <a href="Adminmain.html" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Function to fetch and display donor data
+        function loadDonors() {
+            fetch('registereddonors.php')
+                .then(response => response.json())
+                .then(data => {
+                    const donorsTableBody = document.getElementById('donorsTableBody');
+                    donorsTableBody.innerHTML = ''; // Clear existing rows
+
+                    if (data.length === 0) {
+                        donorsTableBody.innerHTML = '<tr><td colspan="7" class="text-center">No donors found</td></tr>';
+                    } else {
+                        data.forEach(donor => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${donor.id}</td>
+                                <td>${donor.fullname}</td>
+                                <td>${donor.bloodType}</td>
+                                <td>${donor.availabilitys}</td>
+                                <td>${donor.city}</td>
+                                <td>${donor.contact}</td>
+                                <td><button class="btn btn-sm btn-outline-danger">Update</button></td>
+                            `;
+                            donorsTableBody.appendChild(row);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error loading donors:', error));
+        }
+        function loadDonors() {
+    fetch('registereddonors.php')
+        .then(response => response.json())
+        .then(data => {
+            const donorsTableBody = document.getElementById('donorsTableBody');
+            donorsTableBody.innerHTML = ''; // Clear existing rows
+
+            if (data.length === 0) {
+                donorsTableBody.innerHTML = '<tr><td colspan="7" class="text-center">No donors found</td></tr>';
+            } else {
+                data.forEach(donor => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${donor.id}</td>
+                        <td>${donor.fullname}</td>
+                        <td>${donor.bloodType}</td>
+                        <td>${donor.availabilitys}</td>
+                        <td>${donor.city}</td>
+                        <td>${donor.contact}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" onclick="showUpdateModal(${donor.id}, '${donor.fullname}', '${donor.bloodType}', '${donor.availabilitys}', '${donor.city}', '${donor.contact}')">Update</button>
+                            <button class="btn btn-sm btn-outline-danger" onclick="deleteDonor(${donor.id})">Delete</button>
+                        </td>
+                    `;
+                    donorsTableBody.appendChild(row);
+                });
+            }
+        })
+        .catch(error => console.error('Error loading donors:', error));
+}
+
+function deleteDonor(id) {
+    fetch(`registereddonors.php?id=${id}`, { method: 'DELETE' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                loadDonors();
+            }
+        })
+        .catch(error => console.error('Error deleting donor:', error));
+}
+
+function showUpdateModal(id, fullname, bloodType, availabilitys, city, contact) {
+    document.getElementById('updateId').value = id;
+    document.getElementById('updateFullname').value = fullname;
+    document.getElementById('updateBloodType').value = bloodType;
+    document.getElementById('updateAvailability').value = availabilitys;
+    document.getElementById('updateCity').value = city;
+    document.getElementById('updateContact').value = contact;
+    $('#updateModal').modal('show');
+}
+
+function updateDonor() {
+    const id = document.getElementById('updateId').value;
+    const fullname = document.getElementById('updateFullname').value;
+    const bloodType = document.getElementById('updateBloodType').value;
+    const availabilitys = document.getElementById('updateAvailability').value;
+    const city = document.getElementById('updateCity').value;
+    const contact = document.getElementById('updateContact').value;
+
+    const formData = new FormData();
+    formData.append('id', id);
+    formData.append('fullname', fullname);
+    formData.append('bloodType', bloodType);
+    formData.append('availabilitys', availabilitys);
+    formData.append('city', city);
+    formData.append('contact', contact);
+
+    fetch('registereddonors.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            $('#updateModal').modal('hide');
+            loadDonors();
+        }
+    })
+    .catch(error => console.error('Error updating donor:', error));
+}
+
+
+        // Load donors when the page is ready
+        window.onload = loadDonors;
+    </script>
+</body>
+</html>
