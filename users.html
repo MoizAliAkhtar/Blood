@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN link for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <style>
+        #testimonials {
+            background-image: url('images/testonomianl.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 40px 0; /* Adjust padding as needed */
+            max-height: 70vh; 
+            position: relative;
+            color: #ffffff; 
+          }
+          
+          .testimonial-item {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Adds a translucent background */
+            border-radius: 8px;
+            color: #ffffff; /* Text color for better readability */
+          }
+          
+          .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+          }
+          
+          .stars i {
+            color: #ffd700; /* Star color */
+          }
+          
+          .swiper-pagination,
+          .swiper-button-next,
+          .swiper-button-prev {
+            color: #ffffff; /* White controls */
+          }
+          
+    </style>
+</head>
+<body>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Blood Donation System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+
+      <!-- Carousel -->
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/u2.jpg" class="d-block w-100" alt="image" style="height: 70vh;">
+          </div>
+          <div class="carousel-item">
+            <img src="images/u1.jpg" class="d-block w-100" alt="image" style="height: 70vh;">
+          </div>
+          <div class="carousel-item">
+            <img src="images/u3.jpg" class="d-block w-100" alt="image" style="height: 70vh;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Buttons for Donor and Patient -->
+      <div class="container my-5 text-center">
+          <h2>Welcome to the Blood Donation System</h2>
+          <p>Choose your role to get started</p>
+          <div class="d-flex justify-content-center">
+              <a href="donorlink.html" class="btn btn-primary btn-lg mx-3">I am a Donor</a>
+              <a href="patientlink.html" class="btn btn-success btn-lg mx-3">I am a Patient</a>
+          </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <section class="container my-5">
+          <h2 class="text-center">How It Works</h2>
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="card text-center">
+                      <img src="images/contact.jpg" class="card-img-top" alt="Donate Blood">
+                      <div class="card-body">
+                          <h4 class="card-title">Donate Blood</h4>
+                          <p class="card-text">Donors can register and schedule appointments to donate blood at nearby donation centers.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card text-center">
+                      <img src="images/staff1.jpg" class="card-img-top" alt="Find Blood">
+                      <div class="card-body">
+                          <h4 class="card-title">Find Blood</h4>
+                          <p class="card-text">Patients can search for available blood donors based on their blood type and location.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card text-center">
+                      <img src="images/st1.jpg" class="card-img-top" alt="Support">
+                      <div class="card-body">
+                          <h4 class="card-title">Support</h4>
+                          <p class="card-text">The system provides support for both donors and patients, ensuring a seamless experience.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section id="testimonials" class="testimonials section dark-background">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper init-swiper">
+            <div class="swiper-wrapper">
+              
+              <!-- First Testimonial (Donor) -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="images/test1.jpg" class="testimonial-img" alt="Donor Image">
+                  <h3>Ali Raza</h3>
+                  <h4>Blood Donor</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    "It’s a privilege to be able to help save lives. Every donation brings me immense satisfaction, knowing I’m making a difference."
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Second Testimonial (Patient) -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="images/tesst2.jpg" class="testimonial-img" alt="Patient Image">
+                  <h3>Ali Ahmed</h3>
+                  <h4>Recipient Patient</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    "Thanks to the selfless donors, I’ve been given a new lease on life. I’ll always be grateful for this life-saving gift."
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Third Testimonial (Volunteer) -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="images/test3.jpg" class="testimonial-img" alt="Volunteer Image">
+                  <h3>Hassan Khan</h3>
+                  <h4>Blood Donation Volunteer</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    "Being part of the blood donation community is incredibly rewarding. Helping organize drives is my way of giving back."
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              
+            </div>
+      
+            <!-- Pagination and Navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </section>
+       <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 style = "color: orange">About Us </h3>
+                <p>We are dedicated to saving lives by ensuring that blood donations are available whenever needed. Join us in our mission to help others.</p>
+            </div>
+            <div class="footer-section">
+                <h3 style = "color: orange">Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="users.html">Donate Blood</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+    <!-- Contact Section -->
+    <div class="footer-section">
+                <h3 style = "color: orange">Contact</h3>
+                <p>Email: <a href="mailto:info@blooddonation.org">info@blooddonation.org</a></p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Blood Donation Street, City, Country</p>
+            </div>
+
+    <!-- Social Media Section -->
+    <div class="footer-section social">
+                <h3 style = "color: orangered">Follow Us</h3>
+                <a href="https://facebook.com" target="_blank" class="facebook" style = "color: lightseagreen"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="twitter" style = "color: blue"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="instagram" style = "color: palevioletred"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="linkedin" style = "color: orange"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blood Donation Management System. All rights reserved.</p>
+        </div>
+    </footer>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var swiper = new Swiper('.init-swiper', {
+            loop: true, // Loops through the testimonials
+            autoplay: {
+              delay: 5000, // Auto-plays each slide every 5 seconds
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });
+        });
+      </script>
+      
+      
+</body>
+</html>
