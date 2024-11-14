@@ -13,7 +13,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url('images/hero.jpg');
+    background-image: url('./hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 95vh;
@@ -46,7 +46,7 @@ body {
 
 /* About Section */
 #about {
-    background-image: url(images/about.jpg);
+    background-image: url(./about.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 1rem;
@@ -108,7 +108,7 @@ body {
 
 #contact {
     margin-top: -4rem;
-    background-image: url('images/contact.jpg');
+    background-image: url('./contact.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -120,7 +120,7 @@ body {
 
 /* Login Form */
 .background-container {
-    background-image: url(images/register.jpg);
+    background-image: url(./register.jpg);
     background-size: cover;
     position: fixed;
     top: 0;
