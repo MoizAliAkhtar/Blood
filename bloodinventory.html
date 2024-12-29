@@ -51,8 +51,8 @@
         <!-- Search and Filter Options -->
         <div class="d-flex justify-content-between align-items-center mt-4">
             <div class="input-group" style="max-width: 400px;">
-                <input type="text" class="form-control" placeholder="Search by blood type or donor ID">
-                <button class="btn btn-outline-secondary" type="button">Search</button>
+                <input type="text" class="form-control" id="searchInput" placeholder="Search by blood type or donor ID">
+                <button class="btn btn-outline-secondary" type="button" onclick="searchInventory()">Search</button>
             </div>
             <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addInventoryModal">Add New Blood Inventory</button>
         </div>
@@ -109,63 +109,153 @@
         </div>
     </div>
 
+    <!-- Edit Inventory Modal -->
+    <div class="modal fade" id="editInventoryModal" tabindex="-1" aria-labelledby="editInventoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="editInventoryModalLabel">Edit Blood Inventory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editInventoryForm">
+                        <div class="mb-3">
+                            <label for="editBloodType" class="form-label">Blood Type</label>
+                            <input type="text" class="form-control" id="editBloodType" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editUnitsAvailable" class="form-label">Units Available</label>
+                            <input type="number" class="form-control" id="editUnitsAvailable" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editLastUpdated" class="form-label">Last Updated</label>
+                            <input type="date" class="form-control" id="editLastUpdated" required>
+                        </div>
+                        <input type="hidden" id="editIndex">
+                        <button type="submit" class="btn btn-warning">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Save inventory data to localStorage when the form is submitted
         document.getElementById('inventoryForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
 
-            // Get the values from the form
             const bloodType = document.getElementById('bloodType').value;
             const unitsAvailable = document.getElementById('unitsAvailable').value;
             const lastUpdated = document.getElementById('lastUpdated').value;
 
-            // Create an inventory object
-            const inventoryItem = {
-                bloodType,
-                unitsAvailable,
-                lastUpdated
-            };
-
-            // Retrieve existing inventory from localStorage or create a new array if it doesn't exist
+            const inventoryItem = { bloodType, unitsAvailable, lastUpdated };
             let inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
-
-            // Add the new inventory item to the array
             inventoryData.push(inventoryItem);
-
-            // Save the updated array back to localStorage
             localStorage.setItem('inventoryData', JSON.stringify(inventoryData));
 
-            // Close the modal after saving the data
             var modal = bootstrap.Modal.getInstance(document.getElementById("addInventoryModal"));
             modal.hide();
 
-            // Clear the form
             document.getElementById('inventoryForm').reset();
 
-            // Reload the inventory
             loadInventory();
         });
 
-        // Function to load and display inventory data from localStorage
+        // Load and display inventory data from localStorage
         function loadInventory() {
             const inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
             const inventoryTableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
 
-            // Clear any existing data in the table
             inventoryTableBody.innerHTML = '';
 
-            // Loop through the inventory data and add rows to the table
-            inventoryData.forEach(item => {
+            inventoryData.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${item.bloodType}</td>
                     <td>${item.unitsAvailable} units</td>
                     <td>${item.lastUpdated}</td>
-                    <td><button class="btn btn-sm btn-outline-danger">Update</button></td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-warning" onclick="editInventory(${index})">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteInventory(${index})">Delete</button>
+                    </td>
                 `;
                 inventoryTableBody.appendChild(row);
             });
+        }
+
+        // Edit inventory
+        function editInventory(index) {
+            const inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
+            const item = inventoryData[index];
+
+            document.getElementById('editBloodType').value = item.bloodType;
+            document.getElementById('editUnitsAvailable').value = item.unitsAvailable;
+            document.getElementById('editLastUpdated').value = item.lastUpdated;
+            document.getElementById('editIndex').value = index;
+
+            var modal = new bootstrap.Modal(document.getElementById("editInventoryModal"));
+            modal.show();
+        }
+
+        // Save edited inventory data
+        document.getElementById('editInventoryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const index = document.getElementById('editIndex').value;
+            const bloodType = document.getElementById('editBloodType').value;
+            const unitsAvailable = document.getElementById('editUnitsAvailable').value;
+            const lastUpdated = document.getElementById('editLastUpdated').value;
+
+            let inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
+            inventoryData[index] = { bloodType, unitsAvailable, lastUpdated };
+
+            localStorage.setItem('inventoryData', JSON.stringify(inventoryData));
+
+            var modal = bootstrap.Modal.getInstance(document.getElementById("editInventoryModal"));
+            modal.hide();
+
+            loadInventory();
+        });
+
+        // Search functionality
+        function searchInventory() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
+            const filteredData = inventoryData.filter(item => 
+                item.bloodType.toLowerCase().includes(searchTerm)
+            );
+            
+            const inventoryTableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
+            inventoryTableBody.innerHTML = '';
+
+            filteredData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.bloodType}</td>
+                    <td>${item.unitsAvailable} units</td>
+                    <td>${item.lastUpdated}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-warning" onclick="editInventory(${index})">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteInventory(${index})">Delete</button>
+                    </td>
+                `;
+                inventoryTableBody.appendChild(row);
+            });
+        }
+
+        // Delete inventory item
+        function deleteInventory(index) {
+            let inventoryData = JSON.parse(localStorage.getItem('inventoryData')) || [];
+            
+            // Remove the item at the specified index
+            inventoryData.splice(index, 1);
+            
+            // Save the updated data back to localStorage
+            localStorage.setItem('inventoryData', JSON.stringify(inventoryData));
+            
+            // Reload the inventory
+            loadInventory();
         }
 
         // Call the function to load inventory when the page loads

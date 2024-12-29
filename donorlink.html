@@ -19,24 +19,27 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="users.html">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="donate.php#donorProfile">Donor Profile</a>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="donorprofile.php">Donor Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#appointments">Appointments</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#bloodRequests">Blood Requests</a>
-                </li>
+                    <a class="nav-link" href="needblood.php">Blood Requests</a>
+                </li> -->
             </ul>
         </div>
     </nav>
 
     <!-- Donor Registration Form -->
     <section id="registrationForm" class="container mt-5 pt-5">
-        <h2>Donor Registration</h2>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Donor Registration</h2>
+            <a href="donorlogin.php" class="btn btn-primary">Login</a>
+        </div>
         <form method="POST" action="donate.php" class="mt-4">
             <div class="form-group mb-3">
                 <label for="fullname" class="form-label">Full Name</label>
@@ -76,6 +79,12 @@
             <div class="form-group mb-3">
                 <label for="availabilitys" class="form-label">Availability for Donating Blood</label>
                 <input type="date" class="form-control" id="availabilitys" name="availabilitys" required>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
             </div>
 
             <button type="submit" class="btn btn-danger">Register</button>
