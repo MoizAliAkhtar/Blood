@@ -4,153 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - Blood Donation System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .resource-section {
-            padding: 60px 0;
-            background-color: #f8f9fa;
-        }
+    <title>Resources</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+     <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-        .card {
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
-        .card:hover {
-            transform: scale(1.03);
-        }
-
-        .card-title {
-            color: #dc3545;
-        }
-        p{
-            text-align: justify;
-        }
-    </style>
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Blood Donation System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
-                </ul>
+    <header id="header" class="header d-flex align-items-center fixed-top bg-dark">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+          <a href="index.html" class="logo d-flex align-items-center" style="text-decoration: none;">
+            <h1 class="sitename" >Blood Donation System</h1>
+          </a>
+      
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="index.html" class="active" style="text-decoration: none;">Home</a></li>
+              <li><a href="#about" style="text-decoration: none;">About</a></li>
+              <li><a href="success.html" style="text-decoration: none;">Stories</a></li>
+              <li><a href="#features" style="text-decoration: none;">Team</a></li>
+              <li><a href="resources.html" style="text-decoration: none;">Resources</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+        </div>
+      </header>
+      
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h2 class="text-center mb-4">Explore Our Resources</h2>
+
+        <!-- Resource Categories -->
+        <section class="mb-5">
+            <h3>Categories</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Educational Articles</li>
+                <li class="list-group-item">Video Tutorials</li>
+                <li class="list-group-item">E-books</li>
+                <li class="list-group-item">FAQs</li>
+            </ul>
+        </section>
+
+        <!-- Featured Resources -->
+        <section>
+            <h3>Featured Resources</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="resource1.jpg" class="card-img-top" alt="Educational Article">
+                        <div class="card-body">
+                            <h5 class="card-title">Understanding Library Management</h5>
+                            <p class="card-text">An in-depth guide to effective library management strategies.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="resource2.jpg" class="card-img-top" alt="Video Tutorial">
+                        <div class="card-body">
+                            <h5 class="card-title">How to Use Online Catalogs</h5>
+                            <p class="card-text">A step-by-step video tutorial on navigating online library catalogs.</p>
+                            <a href="#" class="btn btn-primary">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="resource3.jpg" class="card-img-top" alt="E-book">
+                        <div class="card-body">
+                            <h5 class="card-title">The Digital Library Era</h5>
+                            <p class="card-text">Explore the evolution and significance of digital libraries.</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Library Resources. All Rights Reserved.</p>
+            <div class="d-flex justify-content-center">
+                <a href="#" class="text-white mx-2">Facebook</a>
+                <a href="#" class="text-white mx-2">Twitter</a>
+                <a href="#" class="text-white mx-2">LinkedIn</a>
             </div>
         </div>
-    </nav>
+    </footer>
 
-    <!-- Resources Section -->
-    <div class="container resource-section mt-5 pt-5">
-        <h2 class="text-center mb-4">Educational Resources</h2>
-        <p class="text-center mb-5">Explore resources to learn about blood donation, its benefits, and how you can make
-            a difference.</p>
-
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Health Benefits of Blood Donation</h5>
-                        <p class="card-text">Donating blood offers several health benefits. It can lower the risk of
-                            heart disease by reducing iron levels, which helps protect the heart and blood vessels.
-                            Blood donation also promotes better blood flow, lowers cancer risks associated with high
-                            iron, and supports liver health. By stimulating new blood cell production, it maintains
-                            healthy blood levels and boosts immunity. Donors experience mental health benefits, too, as
-                            helping others fosters a sense of purpose. Additionally, donation centers provide free
-                            health screenings, offering insights into your overall well-being.</p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Eligibility Requirements</h5>
-                        <p class="card-text">To be eligible for blood donation, donors must generally be at least 17
-                            years old, weigh at least 110 pounds (50 kg), and be in good health. Donors should not have
-                            any serious medical conditions, such as heart disease or active infections. It’s important
-                            to have no recent history of high-risk behaviors or certain travel histories. Eligibility
-                            also depends on the frequency of previous donations, with guidelines for how often you can
-                            donate based on the type of blood product. Donors are typically screened for iron levels and
-                            other factors before donation.</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-4 mt-4">
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Types of Blood Donations</h5>
-                        <p class="card-text">There are several types of blood donations, each serving different medical
-                            needs. Whole blood donation is the most common, where all components of blood are collected.
-                            Platelet donation focuses on collecting only platelets, which help in clotting and are
-                            essential for cancer patients and those with blood disorders. Plasma donation involves
-                            collecting the liquid portion of blood, which is used for patients with liver disease,
-                            burns, or trauma. Additionally, double red cell donations specifically collect red blood
-                            cells, vital for treating patients with anemia or major surgeries. Each type of donation
-                            plays a critical role in saving lives.</p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Facts & Tips for Donors</h5>
-                        <p class="card-text">For a smooth blood donation experience, it's important to stay hydrated and
-                            eat a healthy meal before donating. Avoid caffeine or fatty foods, as they can affect the
-                            donation process. Wear comfortable clothing with sleeves that can be easily rolled up. After
-                            donating, rest for a few minutes and enjoy a snack to replenish your energy. It's also
-                            essential to follow any specific instructions provided by the donation center, such as
-                            waiting between donations and knowing your eligibility. Donating blood is safe and
-                            beneficial, and every donation has the potential to save multiple lives.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-4 mt-4">
-            <div class="col-md-12">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">External Resources for Further Learning</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="https://www.redcross.org" target="_blank"
-                                    class="text-danger">American Red Cross</a> - Comprehensive information on blood
-                                donation and guidelines.</li>
-                            <li class="list-group-item"><a href="https://www.who.int" target="_blank"
-                                    class="text-danger">World Health Organization</a> - Global insights and resources
-                                about blood donation.</li>
-                            <li class="list-group-item"><a href="https://www.nhsbt.nhs.uk" target="_blank"
-                                    class="text-danger">NHS Blood and Transplant</a> - Information for blood donors in
-                                the UK.</li>
-                            <li class="list-group-item"><a href="https://www.cdc.gov" target="_blank"
-                                    class="text-danger">CDC - Blood Donation Basics</a> - Essential facts and safety
-                                measures from the CDC.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
