@@ -4,62 +4,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Donation System</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Login Form</title>
+     <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('images/lgrg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        
+        /* Adding an overlay with reduced opacity */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Dark semi-transparent overlay */
+            z-index: -1; /* Make sure the overlay is behind the content */
+        }
+        
+        .login-form {
+            background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for the form */
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            width: 400px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            color: #000; /* Set text color to black */
+        }
+        
+        .login-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #000; /* Ensure heading text is black */
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.9); /* Make form input fields slightly opaque */
+            border: none;
+            color: #000; /* Set input text color to black */
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            background: rgba(255, 255, 255, 0.9); /* Lighter background on focus */
+        }
+        
+        .btn-custom {
+            background-color: #ff9671;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        
+        .btn-custom:hover {
+            background-color: #ff7854;
+        }
+        
+        .text-link {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #000; /* Ensure text link is black */
+        }
+        
+        .social-buttons .btn {
+            width: 48%;
+            margin: 5px 1%;
+            font-size: 16px;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .btn-facebook {
+            background-color: #3b5998;
+        }
+        
+        .btn-facebook:hover {
+            background-color: #2d4373;
+        }
+        
+        .btn-twitter {
+            background-color: #1da1f2;
+        }
+        
+        .btn-twitter:hover {
+            background-color: #0d95e8;
+        }
+        
+    </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Blood Donation System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="success.html">Success Stories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <header id="header" class="header d-flex align-items-center fixed-top bg-dark">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <!-- Full-Screen Background Container -->
-    <div class="background-container">
-        <div class="overlay">
-            <div class="container mt-5 d-flex justify-content-center">
-                <div class="card p-4 shadow-custom" style="max-width: 400px; width: 100%; margin-top: 5rem;">
-                    <h3 class="card-title text-center">Login</h3>
-                    <form action="login.php" method="post">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="cnic" class="form-label">CNIC (used as password)</label>
-                            <input type="text" name="cnic" class="form-control" id="cnic" placeholder="Enter CNIC" required>
-                        </div>
-                        <button type="submit" href="index.html" class="btn btn-danger w-100">Login</button>
-                        <div class="text-center mt-3">
-                            <a href="#" class="btn btn-link">Forgot Password?</a>
-                            <a href="register.html" class="btn btn-link">Create Account</a>
-                        </div>
-                    </form>
-                </div>
+            <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
+                <h1 class="sitename">Blood Donation System</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="login.html"class="active text-decoration-none">Login</a></li>
+                    <li><a href="Register.html">Register</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="success.html">Stories</a></li>
+                    <li><a href="index.html#features">Team</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <div class="login-form">
+        <h1>Login</h1>
+        <form action="login.php" method="POST">
+            <div class="mb-3">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
             </div>
+            <div class="mb-3">
+                <input type="text" name="cnic" class="form-control" placeholder="CNIC" required>
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember Me</label>
+                <a href="#" class="float-end text-dark">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn btn-custom">SIGN IN</button>
+        </form>
+        <div class="text-link">Or Sign In With</div>
+        <div class="social-buttons d-flex justify-content-center">
+            <button class="btn btn-facebook" onclick="window.open('https://www.facebook.com', '_blank')">Facebook</button>
+            <button class="btn btn-twitter" onclick="window.open('https://www.google.com', '_blank')">Google</button>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>

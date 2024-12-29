@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) > 0) {
         // User found - proceed with login
         $_SESSION['username'] = $username;
-        header("Location: index.html"); // Redirect to a dashboard page after login
+        header("Location: indexmain.html"); // Redirect to a dashboard page after login
         exit();
     } else {
         // User not found - show error message
@@ -33,6 +33,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>";
     }
 }
-
 mysqli_close($conn);
 ?>

@@ -19,17 +19,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cnic = mysqli_real_escape_string($conn, $_POST['cnic']);
     $contact = mysqli_real_escape_string($conn, $_POST['contact']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    
+    $role = mysqli_real_escape_string($conn, $_POST['role']);  // Capture the selected role (Donor or User)
+
     // Insert data into reginfo table
-    $sql = "INSERT INTO reginfo (fullname, cnic, contact, email) VALUES ('$fullname', '$cnic', '$contact', '$email')";
+    $sql = "INSERT INTO reginfo (fullname, cnic, contact, email, role) 
+            VALUES ('$fullname', '$cnic', '$contact', '$email', '$role')";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: index.html"); // Redirect to a dashboard page after login
+        // Redirect to a specific page based on the role
+        if ($role == 'admin') {
+            header("Location: Adminmain.html");  // Redirect to Donor dashboard
+        } else {
+            header("Location:  indexmain.html");  // Redirect to User dashboard
+        }
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-    
 }
 
 // Close connection

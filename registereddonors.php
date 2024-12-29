@@ -1,35 +1,44 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bdms";
+$servername = "localhost";  // Change if your database is on a different server
+$username = "root";         // Your MySQL username
+$password = "";             // Your MySQL password
+$dbname = "bdms";           // Your database name
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch donor data from the database
-$sql = "SELECT * FROM info1";
-$result = mysqli_query($conn, $sql);
-
-// Check if there are any results
-if (mysqli_num_rows($result) > 0) {
-    // Create an array to store the fetched data
+// Fetch donor data
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $sql = "SELECT * FROM info1";  // Change the table name as per your database
+    $result = $conn->query($sql);
+    
     $donors = [];
-    while($row = mysqli_fetch_assoc($result)) {
-        $donors[] = $row;
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $donors[] = $row;
+        }
     }
-} else {
-    $donors = [];
+
+    // Return the data as JSON
+    echo json_encode($donors);
 }
 
-// Close the connection
-mysqli_close($conn);
+// Delete a donor
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "DELETE FROM info1 WHERE id = $id";  // Change 'info1' if necessary
+    
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'error' => $conn->error]);
+    }
+}
 
-// Return the data as a JSON response
-echo json_encode($donors);
+$conn->close();
 ?>

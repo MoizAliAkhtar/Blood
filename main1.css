@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  
+  .navbar-custom {
+    background-color: black;
+    height: 10vh;
+    margin: 0 auto;
+  }
+  
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+  
+  .btn {
+    width: 9rem;
+    gap: 2rem;
+  }
+  
+  /* About Section */
+  #about {
+    background-image: url(images/about.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  .section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .section p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;   
+  }
+  
+  /* Team Section */
+  
+  #team{
+    background-color: white;
+  }
+  #team h2{
+    color:black;
+  }
+  .card {
+    margin-bottom: 30px;
+    height:70vh;
+    width: 19rem;
+    margin-left: 3rem;
+  }
+  .card img{
+    border-radius: 5px;
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin-left: 0; 
+    }
+  }
+  
+  .carousel-inner img {
+    width: 60%;
+    height: 60vh;
+    object-fit:fill;
+    margin: 0 auto;
+    display: block;
+  }
+  .container5 h2{
+    margin-top: -1rem;
+  }
+  
+  /* Contact Section */
+  
+  #contact {
+    margin-top: -4rem;
+    background-image: url('images/contact.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  } 
+  /* Register */
+  .container1 {
+    /* background-image: url(images/register.jpg); */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  
+  }
+  .overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .shadow-custom {
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .shadow-custom {
+    width: 1rem;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  footer {
+    background-color: black;
+    color: #fff;
+    padding: 70px 0;
+    text-align: center;
+    height: 50vh;
+    margin-top: 3rem;
+    position: relative;
+    bottom: 0;
+  }
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 0 20px;
+  }
+  
+  .footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  .footer-section p,
+  .footer-section ul {
+    line-height: 1.6;
+  }
+  
+  .footer-section a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    color: #e74c3c;
+  }
+  
+  .footer-section ul {
+    list-style-type: none;
+  }
+  
+  .footer-section ul li {
+    margin: 8px 0;
+  }
+  
+  .social a {
+    margin: 0 10px;
+    font-size: 20px;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  .social a:hover {
+    color: #e74c3c;
+  }
+  
+  .facebook {
+    color: #3b5998;
+  }
+  
+  .facebook:hover {
+    color: #2d4373;
+  }
+  
+  .twitter {
+    color: #00acee;
+  }
+  
+  .twitter:hover {
+    color: #007bb5;
+  }
+  
+  .instagram {
+    color: #e4405f;
+  }
+  
+  .instagram:hover {
+    color: #c13584;
+  }
+  
+  .linkedin {
+    color: #0e76a8;
+  }
+  
+  .linkedin:hover {
+    color: #004182;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    background-color: #2c2c2c;
+    padding: 15px;
+  }
+  
+  
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero {
+        height: auto;
+        /* Allow auto height for smaller screens */
+        padding: 60px 20px;
+        /* Padding adjustments */
+    }
+  
+    .section {
+        padding: 30px 0;
+        /* Adjust section padding */
+    }
+  
+    /* Responsive adjustments for text sizes */
+    h2 {
+        font-size: 2.5rem;
+        /* Adjust font size for headings */
+    }
+  
+    p {
+        font-size: 1rem;
+        /* Adjust font size for paragraphs */
+    }
+  }
